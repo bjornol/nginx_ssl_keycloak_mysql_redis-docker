@@ -16,25 +16,25 @@ Knowledge about all elements in the compose file before use.
 ## Handy styff
 This docker compose file sets up:
     
-    - nginx with ssl sertificates
-        - Inclues config app.conf file but to be used as example only.
-        - based on some articles and repos
-            https://github.com/wmnnd/nginx-certbot
-            https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
+- nginx with ssl sertificates
+    - Inclues config app.conf file but to be used as example only.
+    - based on some articles and repos
+        https://github.com/wmnnd/nginx-certbot
+        https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
 
-    - Keycloak for authentication with custom "adminlte" login page
-        - based on some articles:
-            https://medium.com/@shivangbhandari/custom-themes-for-keycloak-631bdd3e04e5
-            https://www.mai1015.com/development/2019/05/05/docker-keycloak-proxy-behind-nginx/
-            https://www.keycloak.org/docs/4.8/authorization_services/
-            https://www.youtube.com/watch?v=XJYy6Aq-PJ8
-        - Example theme from:
-            https://github.com/MAXIMUS-DeltaWare/adminlte-keycloak-theme
+- Keycloak for authentication with custom "adminlte" login page
+    - based on some articles:
+        https://medium.com/@shivangbhandari/custom-themes-for-keycloak-631bdd3e04e5
+        https://www.mai1015.com/development/2019/05/05/docker-keycloak-proxy-behind-nginx/
+        https://www.keycloak.org/docs/4.8/authorization_services/
+        https://www.youtube.com/watch?v=XJYy6Aq-PJ8
+    - Example theme from:
+        https://github.com/MAXIMUS-DeltaWare/adminlte-keycloak-theme
 
-    - mysql with config
-        - Inclues config my.cnf file but to be used as example only. Remember to change my.cnf gile dependent of what kind of mariadb version you use.
+- mysql with config
+    - Inclues config my.cnf file but to be used as example only. Remember to change my.cnf gile dependent of what kind of mariadb version you use.
 
-    - Redis
+- Redis
 
 
 ## Run with ssl sertificates
