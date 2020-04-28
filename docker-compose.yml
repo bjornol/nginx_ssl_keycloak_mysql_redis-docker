@@ -1,0 +1,116 @@
+version: "3.2"
+# ----------------------------------------------------------------------------
+# NETWORKS
+# ----------------------------------------------------------------------------
+networks:
+  backend:
+    driver: "bridge"
+services:
+  # ----------------------------------------------------------------------------
+  # NGINX AND CERTBOT
+  # Nginx and certbot for ssl termination
+  # ----------------------------------------------------------------------------
+  nginx:
+    container_name: nginx
+    image: nginx:1.15-alpine
+    restart: unless-stopped
+    depends_on:
+      - redis
+      - mysql
+      - keycloak
+    networks: 
+      - backend
+    volumes:
+      - ./data/nginx/html:/usr/share/nginx/html
+      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+  certbot:
+    container_name: certbot
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  # ----------------------------------------------------------------------------
+  # KEYCLOCK
+  # Adding keycloack
+  # ----------------------------------------------------------------------------
+  keycloak:
+    image: jboss/keycloak:6.0.1 
+    container_name: keycloak
+    hostname: keycloak
+    depends_on:
+      - mysql
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      PROXY_ADDRESS_FORWARDING: 'true'
+      DB_VENDOR: MYSQL
+      DB_ADDR: mysql
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: keycloak
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      # Uncomment the line below if you want to specify JDBC parameters. 
+      # The parameter below is just an example, and it shouldn't be used in production without knowledge.
+      # It is highly recommended that you read the MySQL JDBC driver documentation in order to use it.
+      # JDBC_PARAMS: "connectTimeout=30000"
+    networks: 
+      - backend
+    volumes:
+      - type: bind
+        source: ./data/keycloak/themes/example/adminlte
+        target: /opt/jboss/keycloak/themes/adminlte
+  # ----------------------------------------------------------------------------
+  # MYSQL
+  # Uses mariadb instance
+  # ----------------------------------------------------------------------------
+  mysql:
+    container_name: mariadb # Todo: Change to mysql when testing is complete
+    hostname: mysql
+    build: ./mariadb
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3306:3306" # For development and testing
+    environment:
+      MYSQL_ROOT_PASSWORD: jmhansen123
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: keycloak
+    expose:
+      - 3306
+    networks: 
+      - backend
+    volumes:
+      - mysql-volume:/var/lib/mysql
+  # ----------------------------------------------------------------------------
+  # REDIS
+  # ----------------------------------------------------------------------------
+  redis:
+    container_name: redis
+    image: redis
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6379:6379" # For development and testing
+    expose:
+      - 6379
+    networks: 
+      - backend
+    volumes:
+      - redis-volume:/data
+# ----------------------------------------------------------------------------
+# VOLUMES
+# See also making backup of docker volumes
+# https://docs.docker.com/storage/volumes/
+volumes:
+  mysql-volume:
+  nodered-volume:
+  redis-volume:
+# ----------------------------------------------------------------------------

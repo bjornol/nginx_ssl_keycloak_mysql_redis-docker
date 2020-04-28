@@ -1,0 +1,12 @@
+FROM mariadb:10.0
+
+LABEL maintainer bjornol
+
+# Set timezone
+ENV TZ=Europe/Oslo
+
+# Update the cnf file
+COPY my.cnf /etc/mysql/my.cnf
+
+# Change docker timezone
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
