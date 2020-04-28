@@ -11,7 +11,7 @@ Knowledge about all elements in the compose file before use.
    
    - `./init-letsencrypt.sh [staging | production] <domain1 domain2 ...> `  
 
-> Note: In this example The mariadb is build from compose file to use timezone Europe/Oslo. Remove if not needed.
+> Note: The mariadb is build from compose file to use timezone Europe/Oslo. Remove if not needed.
 
 ## Handy styff
 This docker compose file sets up:
