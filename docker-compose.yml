@@ -80,7 +80,7 @@ services:
     ports:
       - "127.0.0.1:3306:3306" # For development and testing
     environment:
-      MYSQL_ROOT_PASSWORD: jmhansen123
+      MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: keycloak
       MYSQL_USER: keycloak
       MYSQL_PASSWORD: keycloak

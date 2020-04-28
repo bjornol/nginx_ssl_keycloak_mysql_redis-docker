@@ -50,20 +50,21 @@ docker-compose up -d --build
 
 ```
 
-## Run without ssl sertificates ( local testing)
+## Run without ssl sertificates ( local testing )
 ```
 # Run the docker compose
 docker-compose -f docker-compose-without-ssl.yml up -d --build
 ```
 
 ## Test the stuff
-Examples below will help you test that stuff is running correctly.
+Examples below will help you test that stuff without ssl sertificates ( local testing ) is running correctly.
 
-### Nginx test
+
+### Nginx test ( when running the )
 ```
 # go to your browser:
-# expected result: web site opens
-http://127.0.0.1:8180
+# expected result: web site opens with "Welcome to nginx!"
+http://127.0.0.1:81
 ```
 
 ### Keycloak test
