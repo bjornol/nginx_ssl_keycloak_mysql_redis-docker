@@ -32,7 +32,7 @@ This docker compose file sets up:
         https://github.com/MAXIMUS-DeltaWare/adminlte-keycloak-theme
 
 - mysql with config
-    - Inclues config my.cnf file but to be used as example only. Remember to change my.cnf gile dependent of what kind of mariadb version you use.
+    - Inclues config my.cnf file but to be used as example only. Remember to change my.cnf file dependent of what kind of mariadb version you use.
 
 - Redis
 
