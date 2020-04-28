@@ -4,7 +4,7 @@ This compose file is based on serveral other repos and online articles.
 
 ## Pre-Requirements
 Knowledge about all elements in the compose file before use.
-> Nginx and Let’s Encrypt it taken from this repo. You can find more information here https://github.com/wmnnd/nginx-certbot.
+> Nginx and Let’s Encrypt is taken from this repo. You can find more information here https://github.com/wmnnd/nginx-certbot.
 
 > The `init-letsencrypt.sh` fetched from https://github.com/wmnnd/nginx-certbot has been slightly modefied in this example. 
 > In this example you can add domains from comand line, like this:
