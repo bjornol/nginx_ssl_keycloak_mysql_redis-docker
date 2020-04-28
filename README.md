@@ -1,6 +1,6 @@
 # Nginx_ssl_keycloak_mysql_redis-docker
 Handy docker compose example file that sets up a nginx_ssl_keycloak_mysql_redis as a service ready to use.
-This compose file is based on serveral other repos and online articles. This repos works as an example of use only.
+This compose file is based on serveral other repos and online articles.
 
 ## Pre-Requirements
 Knowledge about all elements in the compose file before use.
