@@ -24,12 +24,12 @@ This docker compose file sets up:
 
 - Keycloak for authentication with custom "adminlte" login page
     - based on some articles:
-        https://medium.com/@shivangbhandari/custom-themes-for-keycloak-631bdd3e04e5
-        https://www.mai1015.com/development/2019/05/05/docker-keycloak-proxy-behind-nginx/
-        https://www.keycloak.org/docs/4.8/authorization_services/
-        https://www.youtube.com/watch?v=XJYy6Aq-PJ8
+        - https://medium.com/@shivangbhandari/custom-themes-for-keycloak-631bdd3e04e5
+        - https://www.mai1015.com/development/2019/05/05/docker-keycloak-proxy-behind-nginx/
+        - https://www.keycloak.org/docs/4.8/authorization_services/
+        - https://www.youtube.com/watch?v=XJYy6Aq-PJ8
     - Example theme from:
-        https://github.com/MAXIMUS-DeltaWare/adminlte-keycloak-theme
+        - https://github.com/MAXIMUS-DeltaWare/adminlte-keycloak-theme
 
 - mysql with config
     - Inclues config my.cnf file but to be used as example only. Remember to change my.cnf file dependent of what kind of mariadb version you use.
