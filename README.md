@@ -19,8 +19,8 @@ This docker compose file sets up:
 - nginx with ssl sertificates
     - Inclues config app.conf file but to be used as example only.
     - based on some articles and repos
-        https://github.com/wmnnd/nginx-certbot
-        https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
+        - https://github.com/wmnnd/nginx-certbot
+        - https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
 
 - Keycloak for authentication with custom "adminlte" login page
     - based on some articles:
