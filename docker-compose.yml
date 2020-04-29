@@ -73,12 +73,12 @@ services:
   # Uses mariadb instance
   # ----------------------------------------------------------------------------
   mysql:
-    container_name: mariadb # Todo: Change to mysql when testing is complete
+    container_name: mariadb
     hostname: mysql
     build: ./mariadb
     restart: unless-stopped
     ports:
-      - "127.0.0.1:3306:3306" # For development and testing
+      - "127.0.0.1:3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: keycloak
@@ -98,7 +98,7 @@ services:
     image: redis
     restart: unless-stopped
     ports:
-      - "127.0.0.1:6379:6379" # For development and testing
+      - "127.0.0.1:6379:6379"
     expose:
       - 6379
     networks: 
@@ -107,8 +107,6 @@ services:
       - redis-volume:/data
 # ----------------------------------------------------------------------------
 # VOLUMES
-# See also making backup of docker volumes
-# https://docs.docker.com/storage/volumes/
 volumes:
   mysql-volume:
   nodered-volume:
