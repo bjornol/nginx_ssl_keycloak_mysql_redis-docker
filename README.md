@@ -60,7 +60,7 @@ docker-compose -f docker-compose-without-ssl.yml up -d --build
 Examples below will help you test that stuff without ssl sertificates ( local testing ) is running correctly.
 
 
-### Nginx test ( when running the )
+### Nginx test
 ```
 # go to your browser:
 # expected result: web site opens with "Welcome to nginx!"
